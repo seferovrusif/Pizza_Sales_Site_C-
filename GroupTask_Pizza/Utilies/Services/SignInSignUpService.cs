@@ -1,11 +1,4 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GroupTask_Pizza.Models;
+﻿using GroupTask_Pizza.Models;
 
 namespace GroupTask_Pizza.Utilies.Services
 {

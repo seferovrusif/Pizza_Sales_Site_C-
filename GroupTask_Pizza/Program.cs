@@ -27,15 +27,15 @@ namespace GroupTask_Pizza
                 try
                 {
                 point1:
-                    Console.WriteLine("1. Girish edin\n2. Qeydiyatdan kechin\n3. Proqrami dayandirin");
+                    Console.WriteLine("1. Sign in\n2. Sign Up\n3. Stop program");
                     string a = Console.ReadLine();
                     switch (a)
                     {
                         case "1":
-                            Console.WriteLine("Mail-i daxil edin:"); string mail = Console.ReadLine();
+                            Console.WriteLine("Enter your email.:"); string mail = Console.ReadLine();
                             if (UserValidation.MailValidation(mail))
                             {
-                                Console.WriteLine("Shifreni daxil edin:"); string password = Console.ReadLine();
+                                Console.WriteLine("Enter your Password.:"); string password = Console.ReadLine();
                                 if (UserValidation.PasswordValidation(password))
                                 {
                                     rol = UsersService.GetUserById(SignInSignUpService.SignIn(mail, password)).role;
@@ -65,7 +65,7 @@ namespace GroupTask_Pizza
                 {
                     try
                     {
-                        Console.WriteLine($"1. Pizzalar(Admin)\n2. Userler(Adim)\n3. Mehsullara bax\n4. Sebete elave et\n5. Sebete bax\n6. Sifarisi tamamla\n7. Sifarishlere bax\n8. Hesabdan Cix ");
+                        Console.WriteLine($"1. Pizzas(Admin)\n2. Users(Adim)\n3. View products\n4. Add to Basket\n5. View Basket\n6. Complete Order\n7. View Orders\n8. Exit ");
                         string b = Console.ReadLine();
                         switch (b)
 
@@ -73,7 +73,7 @@ namespace GroupTask_Pizza
 
                             case "1":
                             case "2":
-                                Console.WriteLine($"1. Hamsina bax\n2. Elave et\n3. Duzelis et (ID ile)\n4. Sil (ID ile)");
+                                Console.WriteLine($"1. View All\n2. Add\n3. Edit (Enter ID)\n4. Delete (Enter ID)");
                                 b = b + Console.ReadLine();
                                 switch (b)
                                 {
@@ -145,7 +145,7 @@ namespace GroupTask_Pizza
                     {
                         try
                         {
-                            Console.WriteLine($"1. Mehsullara bax\n2. Sebete elave et\n3. Sebete bax\n4. Sifarisi tamamla\n5. Hesabdan cix");
+                            Console.WriteLine($"1. View Products\n2. Add to Basket\n3. View Basket\n4. Complete Order\n5. Exit");
                             string opt = Console.ReadLine();
                             switch (opt)
                             {

@@ -1,10 +1,4 @@
-﻿using GroupTask_Pizza.Utilies.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace GroupTask_Pizza.Utilies.Validation
 {
@@ -37,32 +31,32 @@ namespace GroupTask_Pizza.Utilies.Validation
         }
         public static (string,string,string,string) SignUpValidation()
         {
-            Console.WriteLine("Ad daxil edin:");
+            Console.WriteLine("Enter Name:");
             string name = Console.ReadLine();
             while (!UserValidation.NameValidation(name))
             {
-                Console.WriteLine("Adi sehvdir, yeniden daxil edin");
+                Console.WriteLine("The name is incorrect, please re-enter it.");
                 name = Console.ReadLine();
             }
-            Console.WriteLine("Soyad daxil edin:");
+            Console.WriteLine("Enter Surname:");
             string surname = Console.ReadLine();
             while (!UserValidation.SurnameValidation(surname))
             {
-                Console.WriteLine("Soyad sehvdir, yeniden daxil edin");
+                Console.WriteLine("The Surname is incorrect, please re-enter it");
                 surname = Console.ReadLine();
             }
-            Console.WriteLine("Mail daxil edin:");
+            Console.WriteLine("Enter Mail:");
             string mail2 = Console.ReadLine();
             while (!UserValidation.MailValidation(mail2))
             {
-                Console.WriteLine("Mail sehvdir, yeniden daxil edin");
+                Console.WriteLine("The mail is incorrect, please re-enter it");
                 mail2 = Console.ReadLine();
             }
-            Console.WriteLine("Shifre daxil edin:");
+            Console.WriteLine("Enter Password:");
             string password2 = Console.ReadLine();
             while (!UserValidation.PasswordValidation(password2))
             {
-                Console.WriteLine("Sifre sehvdir, yeniden daxil edin");
+                Console.WriteLine("The Password is incorrect, please re-enter it");
                 password2 = Console.ReadLine();
             }
             return (name, surname, mail2, password2);

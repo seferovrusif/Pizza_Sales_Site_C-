@@ -33,16 +33,16 @@ namespace GroupTask_Pizza.Utilies.Services
 
         public static void AddToCart()
         {
-            Console.WriteLine("Sifarish etmek istediyiniz pizza Id-sini daxil edin: ");
+            Console.WriteLine("Enter the pizza ID you want to order.: ");
             int idd = Convert.ToInt32(Console.ReadLine());
             var a = Database.Products.Find(x => x.Id == idd);
             if (a == null)
             {
-                throw new PizzaNotFoundException("Pizza Tapilmadi");
+                throw new PizzaNotFoundException("Pizza not found");
             }
             else
             {
-                Console.WriteLine("Pizza sayini daxil et");
+                Console.WriteLine("Enter the number of pizzas");
                 int say = Convert.ToInt32(Console.ReadLine());
                 if (say <= a.Count && say > 0)
                 {
@@ -53,7 +53,7 @@ namespace GroupTask_Pizza.Utilies.Services
                 }
                 else
                 {
-                    throw new ("Mehsul sayi yanlisdir");
+                    throw new ("The product number is incorrect.");
 
                 }
             }
@@ -62,28 +62,28 @@ namespace GroupTask_Pizza.Utilies.Services
         {
             if (order.Basket.Count == 0)
             {
-                Console.WriteLine("Sebet boshdur!");
+                Console.WriteLine("Basket is Empty!");
             }
             else
             {
                 ListsOfBasket();
                 decimal TotalPrice = 0;
                 order.Basket.ForEach(x => TotalPrice += x.Price * x.Count);
-                Console.WriteLine($"Umumi mebleg: {TotalPrice:C}");
-                Console.WriteLine("Unvani daxil edin:");
+                Console.WriteLine($"Total Price: {TotalPrice:C}");
+                Console.WriteLine("Enter address:");
                 string adress = Console.ReadLine();
-                Console.WriteLine("Telefon nomresini daxil edin");
+                Console.WriteLine("Enter phone number");
                 string phonenumber = Console.ReadLine();
                 while (!OrderValidation.PhoneValidation(phonenumber))
                 {
 
-                    Console.WriteLine("Nomre sehvdir, yeniden daxil edin:");
+                    Console.WriteLine("The number is incorrect, please enter it again.:");
                     phonenumber = Console.ReadLine();
                 }
                 order = new Order(adress, phonenumber, DateTime.Now, order.Basket);
                 Database.OrdersList.Add(order);
                 order = new Order(null, null, default, new List<Product>() { });
-                Console.WriteLine("Sifarish tamamlandi!");
+                Console.WriteLine("Order completed!");
                 CompleteOrder = true;
                 CompletedOrder();
                 BasketTemp.Clear();
