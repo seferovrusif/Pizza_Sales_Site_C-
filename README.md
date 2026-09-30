@@ -53,3 +53,7 @@ This project is a simple console-based management system developed for handling 
 ## License
 
 This project is licensed under the MIT License.
+
+
+check updates
+
